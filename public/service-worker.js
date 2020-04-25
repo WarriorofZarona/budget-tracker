@@ -79,3 +79,10 @@ self.addEventListener("fetch", event => {
         })
     );
 });
+
+let deferredPrompt;
+self.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    showInstallPromotion();
+});
